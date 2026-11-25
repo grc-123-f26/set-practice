@@ -1,4 +1,7 @@
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.ArrayList;
 
 /**
  * The DuplicateRemover class provides a method to remove duplicate words
@@ -15,7 +18,18 @@ public class DuplicateRemover {
      */
     public static List<String> sortAndRemoveDuplicates(String[] words) {
         // TODO
-        return null;
+        Set<String> sortedSet = new TreeSet<>();
+        //  for ( String w : words){
+        //     sortedSet.add(w);
+        //  }
+        for ( int i =0; i< words.length; i++){
+        sortedSet.add(words[i]);
+        }    
+        List<String> sortedList = new ArrayList<>();
+        for (String word : sortedSet) {
+            sortedList.add(word);
+        }
+        return sortedList;
     }
 
     public static void main(String[] args) {
