@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -14,8 +15,17 @@ public class CommonElementsFinder {
      * @return a Set<Integer> containing the integers that are present in both arrays
      */
     public static Set<Integer> findCommonElements(int[] array1, int[] array2) {
-        // TODO
-        return null;
+        Set<Integer> commons = new HashSet<>();
+        for(int i = 0; i < array1.length; i ++){
+            commons.add(array1[i]);
+
+        }
+        for(int i = 0; i < array2.length; i ++){
+            commons.add(array1[i]);
+        }
+
+        System.out.println(commons);
+        return commons;
     }
 
 
