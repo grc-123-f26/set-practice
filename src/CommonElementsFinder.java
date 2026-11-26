@@ -24,7 +24,6 @@ public class CommonElementsFinder {
                 }
             }
         }
-
         return sortedIntegers;
     }
 
