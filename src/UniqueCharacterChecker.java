@@ -1,3 +1,6 @@
+import java.util.Map;
+import java.util.HashMap;
+
 /**
  * The UniqueCharacterChecker class provides a method to check if all characters
  * in a given word are unique.
@@ -11,10 +14,22 @@ public class UniqueCharacterChecker {
      * @return true if all characters in the word are unique; false otherwise
      */
     public static boolean hasUniqueCharacters(String word) {
-        // TODO: implement this!
-        // Requirement: This must run in O(n) time, where n is the number of characters in the word
-        // Hint: Stuck? Consider looking up "charAt" and seeing how it can help you
-        return false;
+        Map<Character, Integer> charFrequency = new HashMap<>();
+        for (char character : word.toCharArray()) {
+            if (charFrequency.get(character) == null) {
+                charFrequency.put(character, 1);
+            } else {
+                charFrequency.put(character, charFrequency.get(character) + 1);
+            }
+        }
+
+        for (char character : charFrequency.keySet()) {
+            if (charFrequency.get(character) > 1) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
