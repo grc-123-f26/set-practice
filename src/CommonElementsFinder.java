@@ -1,4 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.Map;
 
 /**
  * The CommonElementsFinder class provides a method for finding common elements
@@ -14,8 +17,28 @@ public class CommonElementsFinder {
      * @return a Set<Integer> containing the integers that are present in both arrays
      */
     public static Set<Integer> findCommonElements(int[] array1, int[] array2) {
-        // TODO
-        return null;
+        Map<Integer, Integer> numberFrequencies = new HashMap<>();
+
+        if (array1.length > array2.length) {
+            for (int num : array1) {
+                numberFrequencies.put(num, numberFrequencies.get(num) + 1);
+            }
+        }
+
+        if (array2.length > array1.length) {
+            for (int num : array2) {
+                numberFrequencies.put(num, numberFrequencies.get(num) + 1);
+            }
+        }
+
+        Set<Integer> commonNums = new HashSet<>();
+        for (int num : numberFrequencies.keySet()) {
+            if (numberFrequencies.get(num) > 1) {
+                commonNums.add(num);
+            }
+        }
+
+        return commonNums;
     }
 
 
