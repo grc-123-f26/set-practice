@@ -19,15 +19,19 @@ public class CommonElementsFinder {
     public static Set<Integer> findCommonElements(int[] array1, int[] array2) {
         Map<Integer, Integer> numberFrequencies = new HashMap<>();
 
-        if (array1.length > array2.length) {
-            for (int num : array1) {
-                numberFrequencies.put(num, numberFrequencies.get(num) + 1);
+        for (int num : array1) {
+            if (numberFrequencies.get(num) == null) {
+                numberFrequencies.put(num, 1);
+            } else {
+                 numberFrequencies.put(num, numberFrequencies.get(num) + 1);
             }
         }
 
-        if (array2.length > array1.length) {
-            for (int num : array2) {
-                numberFrequencies.put(num, numberFrequencies.get(num) + 1);
+        for (int num : array2) {
+            if (numberFrequencies.get(num) == null) {
+                numberFrequencies.put(num, 1);
+            } else {
+                 numberFrequencies.put(num, numberFrequencies.get(num) + 1);
             }
         }
 
